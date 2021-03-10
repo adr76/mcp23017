@@ -12,7 +12,7 @@
 
 #define INT_GPIO 7
 
-void myInterruptService()
+void keyPress()
 {
     printf("_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-\r\n");
     printf("the key has been pressed!!!\r\n");
@@ -58,7 +58,7 @@ int main(int argc, char**argv)
     //Configure pin INT_GPIO as an interrupt function
     pinMode(INT_GPIO,INPUT);
     pullUpDnControl(INT_GPIO,PUD_UP);
-    if(wiringPiISR(INT_GPIO,INT_EDGE_FALLING,&myInterruptService)<0)
+    if(wiringPiISR(INT_GPIO,INT_EDGE_FALLING,&keyPress)<0)
     {
         printf("unable to ISR\r\n");
     }
