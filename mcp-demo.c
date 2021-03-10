@@ -3,8 +3,6 @@
 #include <wiringPiI2C.h>
 #include "mcp23017.h"
 
-
-
 //Change this Macro definition to test differrnt demo
 //For interruptTest,you need connect PA7 and PB7 to a button(when the button pressed,it connect to GND)
 #define debug 1

@@ -10,16 +10,18 @@ PIN    0   1   2   3   4   5   6    7      8   9   10  11  12  13  14   15
 #include <stdio.h>
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
-#include "mymcp23017.h"
+#include "mcp23017.h"
 
 #define debug 0
 #define outputTest 0
 #define inputTest 0
 #define interruptTest 0
 
-#define INT_PIN 7 // OrangePi pin
+#define INT_PIN 7 // OrangePi INT pin
 #define KEYS 11
 #define LEDS 5
+
+// #define key(num) 
 
 int key[KEYS] = {8, 10, 11, 0, 1, 2, 3, 4, 13, 14, 6};
 int led[LEDS] = {9, 12, 15, 5, 7};
@@ -46,24 +48,13 @@ void readPort(){
 	printf("\n");
 }
 
-int main(int argc, char**argv)
+int main(void)
 {
-    //init the wiring Pins
-    if(wiringPiSetup()<0)
-    {
-        printf("wiringPiSetup error!!!");
-        return -1;
-    }
-    
+    wiringPiSetup();
     fd = wiringPiI2CSetupInterface("/dev/i2c-0", 0x20);
-    if(fd <0) 
-    {
-        printf("wiringPiI2CSetup error!!!");
-        return -1;
-    }
     
     //init the MCP23017 Register
-    mcp_initReg(); // Set all inputs on port A and B
+    mcp_initReg();
 
     // Init Keys
     // mcp_setupInterrupts(1,0,0);
