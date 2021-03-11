@@ -1,3 +1,4 @@
 *.o
 mcp-demo
 mymcp
+mcp23017_wiringPi
