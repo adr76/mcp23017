@@ -53,7 +53,7 @@ int main(int argc, char**argv)
     }
     
     //init the MCP23017 Register
-    mcp_initReg();
+    mcp_resetRegs();
     
     //Configure pin INT_GPIO as an interrupt function
     pinMode(INT_GPIO,INPUT);

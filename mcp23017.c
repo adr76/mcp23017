@@ -83,7 +83,7 @@ void mcp_begin(uint8_t addr) {
 /**
 * This init the reg value, change the value to the default
 */
-void mcp_initReg(void){
+void mcp_resetRegs(void){
     // set defaults!
 	// all inputs on port A and B
     for(int addr = 0; addr< 22; addr++)
